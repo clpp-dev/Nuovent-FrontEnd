@@ -1,0 +1,24 @@
+.Card{
+    background-color: aqua;
+    padding: 2em 0.5em;
+    font-family: "Poppins", "Montzerrat";
+    border-radius: 5px;
+    background: #e0e0e0;
+    box-shadow:  10px 10px 10px #c5c5c5,
+             -10px -10px 10px #ffffff;
+    margin: 0px 0.5em;
+}
+
+.Card img {
+    background-color: antiquewhite;
+    /* height: 200px; */
+    width: 100%;
+}
+
+.Card ul {
+    list-style: none;
+    text-align: left;
+    padding-bottom: 1em;
+}
+
+
