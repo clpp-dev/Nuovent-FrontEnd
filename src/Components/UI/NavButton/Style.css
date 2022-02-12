@@ -3,14 +3,17 @@
     width: 100%;
 }
 
-.neumorphism-button{
+.nav-button{
     /* background-color: aqua; */
-    color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #3a7bd5;
     margin: 0px 5px;
     border-style: none;
     padding: 10px 10px;
     border-radius: 5px;
-    background: #4070F4;
+    background: #e0e0e0;
     box-shadow:  10px 10px 20px #c5c5c5,
              -10px -10px 20px #ffffff;
     width: 80%;
@@ -19,8 +22,8 @@
     font-family: 'Poppins','Montserrat';
 }
 
-.neumorphism-button:hover{
-    color: #ffffff;
+.nav-button:hover{
+    color: #3269b6;
     box-shadow:  20px 20px 60px #bebebe,
                 -20px -20px 60px #ffffff,
                 inset 3px 3px 5px rgba(0,0,0,0.1),

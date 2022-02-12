@@ -4,9 +4,17 @@
     font-family: "Poppins", "Montzerrat";
     border-radius: 5px;
     background: #e0e0e0;
-    box-shadow:  10px 10px 10px #c5c5c5,
-             -10px -10px 10px #ffffff;
+    box-shadow:  10px 10px 60px #c5c5c5,
+             -10px -10px 60px #ffffff;
     margin: 0px 0.5em;
+    transition: all 0.2s;
+}
+
+.Card:hover{
+    box-shadow:  20px 20px 60px #bebebe,
+                -20px -20px 60px #ffffff,
+                inset 3px 3px 5px rgba(0,0,0,0.1),
+                inset -1px -1px 5px rgba(255,255,255,1);
 }
 
 .Card img {
