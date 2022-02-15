@@ -1,16 +1,15 @@
 import "./Style.css"
 import React from 'react'
-import PropTypes from 'prop-types'
+import ImgLogo from '../../../Img/logo-500x500.png'
 
-export const Logo = props => {
+export const Logo = () => {
   return (
-    <div>Logo</div>
+    <div className="cont-logo">
+      <img src={ImgLogo} alt="Nuovent.com" />
+    </div>
   )
 }
 
-Logo.propTypes = {
-
-}
 
 
 
