@@ -19,6 +19,7 @@ function App() {
           <Route path="/zonaeventos" element={<HotelCard/>} />
           <Route path="/registro" element={<HotelCard/>} />
           <Route path="/login" element={<HotelCard/>} />
+          <Route path="*" element={<div>Pagina no encontrada</div>} />
       </Routes>
     </BrowserRouter>
   );

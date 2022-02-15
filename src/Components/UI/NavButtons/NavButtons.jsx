@@ -22,7 +22,6 @@ export const NavButtons = () => {
             </li>
           <li>
             <NavLink to="/login" className="nav-button"><FiLogIn/>Login</NavLink>
-            
             </li>
         </ul>
       </nav>
