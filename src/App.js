@@ -15,11 +15,11 @@ function App() {
     <BrowserRouter>
       <NavBar/>
       <Routes>
-          <Route path="/" element={<Home/>} />
           <Route path="/zonaeventos" element={<HotelCard/>} />
           <Route path="/registro" element={<HotelCard/>} />
           <Route path="/login" element={<HotelCard/>} />
           <Route path="*" element={<div>Pagina no encontrada</div>} />
+          <Route path="/" element={<Home/>} />
       </Routes>
     </BrowserRouter>
   );
