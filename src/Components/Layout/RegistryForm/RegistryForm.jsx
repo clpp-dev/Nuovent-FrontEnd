@@ -1,6 +1,7 @@
 import "./Style.css"
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import jwt from "jwt-decode";
 
 export const RegistryForm = () => {
     const [nombre, setNombre] = useState ("")
@@ -9,11 +10,12 @@ export const RegistryForm = () => {
     const [userName, setUserName] = useState ("")
     const [email, setEmail] = useState ("")
     const [password, setPassword] = useState ("")
+    // const [token, setToken] = useState ({})
 
     const newRegistry = async (e) => {
         e.preventDefault();
         // console.log(`ENVIANDO... ${email}, ${password}`)
-        const res = await fetch('http://localhost:5000/registro',{
+        const res = await fetch('https://nuovent.herokuapp.com/login',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -28,6 +30,11 @@ export const RegistryForm = () => {
             })
         })
         const data = await res.json();
+        var token = await data.token; 
+        // console.log(`TOKENN: ${token}`);
+        var decoded = await jwt(token);
+        console.log("🚀🚀🚀~decoded UID", decoded.uid)
+
         console.log(data)
         setNombre("");
         setTypeDoc("");
@@ -52,7 +59,7 @@ export const RegistryForm = () => {
                 className=""
                 type="text"
                 placeholder="Nombre"
-                required/>
+                />
 
                 <label className="">Tipo Documento*</label>
                 <input 
@@ -60,8 +67,8 @@ export const RegistryForm = () => {
                 value={typeDoc}
                 className=""
                 type="text"
-                placeholder="Apellidos"
-                required/>
+                placeholder="Tipo Documento"
+                />
 
                 <label className="">Numero de documento</label>
                 <input 
@@ -69,8 +76,8 @@ export const RegistryForm = () => {
                 value={numDoc}
                 className=""
                 type="text"
-                placeholder="Apellidos"
-                required/>
+                placeholder="Numero de documento"
+                />
 
                 <label className="">Nombre de usuario</label>
                 <input 
@@ -79,7 +86,7 @@ export const RegistryForm = () => {
                 className=""
                 type="text"
                 placeholder="Apellidos"
-                required/>
+                />
 
                 <label className="">Email*</label>
                 <input 
@@ -88,7 +95,7 @@ export const RegistryForm = () => {
                 className=""
                 type="email"
                 placeholder="Email"
-                required/>
+                />
 
                 <label className="">Password*</label>
                 <input
@@ -97,7 +104,7 @@ export const RegistryForm = () => {
                 className=""
                 type="password"
                 placeholder="Password"
-                required/>
+                />
 
                 <button className="button">Enviar</button>
             </form>
