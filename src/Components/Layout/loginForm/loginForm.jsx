@@ -33,9 +33,9 @@ export const LoginForm = () => {
     }
 
     return (
-        <div className="">
+        <div className="contFormLogin">
             <form onSubmit={newLogin}
-            className="">
+            className="formLogin">
 
                 <h2 className="">Login</h2>
 
