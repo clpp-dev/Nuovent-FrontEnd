@@ -1,6 +1,5 @@
-import "./Style.css"
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import "./Style.css";
+import React, { useState } from 'react';
 import jwt from "jwt-decode";
 
 export const RegistryForm = () => {
@@ -10,12 +9,10 @@ export const RegistryForm = () => {
     const [userName, setUserName] = useState ("")
     const [email, setEmail] = useState ("")
     const [password, setPassword] = useState ("")
-    // const [token, setToken] = useState ({})
 
     const newRegistry = async (e) => {
         e.preventDefault();
-        // console.log(`ENVIANDO... ${email}, ${password}`)
-        const res = await fetch('https://nuovent.herokuapp.com/login',{
+        const res = await fetch('https://nuovent.herokuapp.com/registro',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,25 +27,24 @@ export const RegistryForm = () => {
             })
         })
         const data = await res.json();
-        var token = await data.token; 
-        // console.log(`TOKENN: ${token}`);
+        console.log(data)
+        var token = data;
         var decoded = await jwt(token);
+        
         console.log("🚀🚀🚀~decoded UID", decoded.uid)
 
-        console.log(data)
         setNombre("");
         setTypeDoc("");
         setNumDoc("");
         setUserName("");
         setEmail("");
         setPassword("");
-        alert(data)
     }
 
     return (
-        <div className="">
+        <div className="cont-fromRegistry">
             <form onSubmit={newRegistry}
-            className="">
+            className="formRegistry">
 
                 <h2 className="">Registro</h2>
 
@@ -59,6 +55,7 @@ export const RegistryForm = () => {
                 className=""
                 type="text"
                 placeholder="Nombre"
+                required
                 />
 
                 <label className="">Tipo Documento*</label>
@@ -68,6 +65,7 @@ export const RegistryForm = () => {
                 className=""
                 type="text"
                 placeholder="Tipo Documento"
+                required
                 />
 
                 <label className="">Numero de documento</label>
@@ -77,6 +75,7 @@ export const RegistryForm = () => {
                 className=""
                 type="text"
                 placeholder="Numero de documento"
+                required
                 />
 
                 <label className="">Nombre de usuario</label>
@@ -85,7 +84,8 @@ export const RegistryForm = () => {
                 value={userName}
                 className=""
                 type="text"
-                placeholder="Apellidos"
+                placeholder="Nombre de usuario"
+                required
                 />
 
                 <label className="">Email*</label>
@@ -95,23 +95,21 @@ export const RegistryForm = () => {
                 className=""
                 type="email"
                 placeholder="Email"
+                required
                 />
 
-                <label className="">Password*</label>
+                <label className="">Contraseña*</label>
                 <input
                 onChange={e =>setPassword(e.target.value)}
                 value={password}
                 className=""
                 type="password"
-                placeholder="Password"
+                placeholder="Contraseña"
+                required
                 />
 
                 <button className="button">Enviar</button>
             </form>
         </div>
     )
-}
-
-RegistryForm.propTypes = {
-
 }
