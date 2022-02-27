@@ -19,11 +19,15 @@ export const NavButtons = () => {
           </li>
           <li>
             <NavLink to="/registro" className="nav-button"><AiOutlineUserAdd/>Registro</NavLink>
-            </li>
+          </li>
           <li>
             <NavLink to="/login" className="nav-button"><FiLogIn/>Login</NavLink>
-            </li>
+          </li>
+          <li>
+            <NavLink to="/crearanuncio" className="nav-button"><FiLogIn/>Crear Anuncio</NavLink>
+          </li>
         </ul>
+        
       </nav>
   )
 }
