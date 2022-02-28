@@ -1,10 +1,10 @@
 import "./Style.css";
 import React, { useState } from 'react';
 import jwt from "jwt-decode";
-import { Route, Redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export const LoginForm = () => {
-    
+    const navigate = useNavigate()
     const [email, setEmail] = useState ("")
     const [password, setPassword] = useState ("")
 
@@ -23,19 +23,18 @@ export const LoginForm = () => {
         })
         const data = await res.json();
         console.log("🚀 ~ file: loginForm.jsx ~ line 25 ~ newLogin ~ data", data)
-        var token = await data.token;
+        let token = await data.token;
         console.log("🚀 ~ file: loginForm.jsx ~ line 26 ~ newLogin ~ token", token)
         
         //Guardo en local storage el token
         localStorage.setItem('token', token);
-        var decoded = await jwt(token);
-        var satateUser= await decoded.claims.state
-        console.log("🚀 ~ file: loginForm.jsx ~ line 34 ~ newLogin ~ satateUser", satateUser)
+        let decoded = await jwt(token);
+        let stateUser= await decoded.claims.state
+        console.log("🚀 ~ file: loginForm.jsx ~ line 33 ~ newLogin ~ stateUser", stateUser)
         console.log("🚀🚀🚀~decoded CLAIMS", decoded)
-    
+        stateUser === 2 ? navigate("/crearanuncio") : alert("Datos invalidos")
         // setEmail("");
         // setPassword("");
-
     }
 
     return (

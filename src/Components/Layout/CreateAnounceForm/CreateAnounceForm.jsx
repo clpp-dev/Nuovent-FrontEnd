@@ -1,88 +1,99 @@
 import "./Style.css";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import jwt from "jwt-decode";
 
 export const CreateAnounceForm = () => {
-    const [nomAnounce, setNomAnounce] = useState ("")
-    const [description, setDescription] = useState ("")
-    const [numCapacity, setNumCapacity] = useState ("")
-    const [location, setLocation] = useState ("")
+  const [nomAnounce, setNomAnounce] = useState("");
+  const [description, setDescription] = useState("");
+  const [numCapacity, setNumCapacity] = useState("");
+  const [location, setLocation] = useState("");
+  const [arrayImages, setArrayImages] = useState([]);
 
-    const newAnounce = async (e) => {
-        e.preventDefault();
-        const res = await fetch('https://nuovent.herokuapp.com/anuncio',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                nomAnounce,
-                description,
-                numCapacity,
-                location,
-            })
-        })
-        const data = await res.json();
-        console.log(data)
-        var token = data;
-        var decoded = await jwt(token);    
-        console.log("🚀🚀🚀~decoded UID", decoded.uid)
+  const newAnounce = async (e) => {
+    e.preventDefault();
+    const res = await fetch("https://nuovent.herokuapp.com/anuncio", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomAnounce,
+        description,
+        numCapacity,
+        location,
+        arrayImages
+      }),
+    });
+    const data = await res.json();
+    console.log(data);
+    var token = data;
+    var decoded = await jwt(token);
+    console.log("🚀🚀🚀~decoded UID", decoded.uid);
 
-        setNomAnounce("");
-        setDescription("");
-        setNumCapacity("");
-        setLocation("");
-    }
+    setNomAnounce("");
+    setDescription("");
+    setNumCapacity("");
+    setLocation("");
+    setArrayImages([])
+  };
 
-    return (
-        <div className="cont-fromNewAnounce">
-            <form onSubmit={newAnounce}
-            className="formNewAnounce">
+  return (
+    <div className="cont-fromNewAnounce">
+      <form onSubmit={newAnounce} className="formNewAnounce">
+        <h2 className="">Crear nuenvo Anuncio</h2>
 
-                <h2 className="">Crear nuenvo Anuncio</h2>
+        <label className="">Titulo del anuncio</label>
+        <input
+          onChange={(e) => setNomAnounce(e.target.value)}
+          value={nomAnounce}
+          className=""
+          type="text"
+          placeholder="Titulo del anuncio"
+          required
+        />
 
-                <label className="">Titulo del anuncio</label>
-                <input 
-                onChange={e =>setNomAnounce(e.target.value)}
-                value={nomAnounce}
-                className=""
-                type="text"
-                placeholder="Nombre"
-                required
-                />
+        <label className="">Descripcion*</label>
+        <input
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
+          className=""
+          type="text"
+          placeholder="Descripcion"
+          required
+        />
 
-                <label className="">Descripcion*</label>
-                <input 
-                onChange={e =>setDescription(e.target.value)}
-                value={description}
-                className=""
-                type="text"
-                placeholder="Tipo Documento"
-                required
-                />
+        <label className="">Capacidad</label>
+        <input
+          onChange={(e) => setNumCapacity(e.target.value)}
+          value={numCapacity}
+          className=""
+          type="text"
+          placeholder="Capacidad"
+          required
+        />
 
-                <label className="">Capacidad</label>
-                <input 
-                onChange={e =>setNumCapacity(e.target.value)}
-                value={numCapacity}
-                className=""
-                type="text"
-                placeholder="Numero de documento"
-                required
-                />
+        <label className="">Ubicación</label>
+        <input
+          onChange={(e) => setLocation(e.target.value)}
+          value={location}
+          className=""
+          type="text"
+          placeholder="Ubicación"
+          required
+        />
 
-                <label className="">Ubicacion</label>
-                <input 
-                onChange={e =>setLocation(e.target.value)}
-                value={location}
-                className=""
-                type="text"
-                placeholder="Nombre de usuario"
-                required
-                />
+        <label className="">Sube imágenes</label>
+        <input
+          name="images"
+          type="file"
+          accept="image/png, .jpeg, .jpg"
+          multiple
+          onChange={(e) => {setArrayImages([e.target.files])
+                        console.log(e.target.files)}}
+        />
 
-                <button className="button">Crear</button>
-            </form>
-        </div>
-    )
-}
+        <button className="button">Crear Anuncio</button>
+      </form>
+    </div>
+  );
+};
