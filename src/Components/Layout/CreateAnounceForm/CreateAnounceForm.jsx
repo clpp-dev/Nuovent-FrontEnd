@@ -88,8 +88,15 @@ export const CreateAnounceForm = () => {
           type="file"
           accept="image/png, .jpeg, .jpg"
           multiple
-          onChange={(e) => {setArrayImages([e.target.files])
-                        console.log(e.target.files)}}
+          onChange={(e) => {
+            for (let i = 0; i < e.target.files.length; i++)
+            {
+              setArrayImages(arrayImages => [...arrayImages, e.target.files[i]])
+              console.log(e.target.files[i]) 
+            }                        
+            console.log(e.target.files.length)
+            console.log(arrayImages)
+          }}
         />
 
         <button className="button">Crear Anuncio</button>
