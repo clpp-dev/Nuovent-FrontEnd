@@ -7,35 +7,46 @@ export const CreateAnounceForm = () => {
   const [description, setDescription] = useState("");
   const [numCapacity, setNumCapacity] = useState("");
   const [location, setLocation] = useState("");
-  const [arrayImages, setArrayImages] = useState([]);
+  const [arrayImages, setArrayImages] = useState(null);
 
   const newAnounce = async (e) => {
     e.preventDefault();
+    
     const res = await fetch("https://nuovent.herokuapp.com/anuncio", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
+        "Content-Type": "application/form-data",
       },
-      body: JSON.stringify({
+      // body: JSON.stringify({
+      //   nomAnounce,
+      //   description,
+      //   numCapacity,
+      //   location,
+      //   arrayImages
+      // }),
+      body:(
         nomAnounce,
         description,
         numCapacity,
         location,
-        arrayImages
-      }),
+        formData
+      ),
     });
     const data = await res.json();
     console.log(data);
-    var token = data;
-    var decoded = await jwt(token);
-    console.log("🚀🚀🚀~decoded UID", decoded.uid);
+    // var token = data;
+    // var decoded = await jwt(token);
+    // console.log("🚀🚀🚀~decoded UID", decoded.uid);
 
     setNomAnounce("");
     setDescription("");
     setNumCapacity("");
     setLocation("");
-    setArrayImages([])
+    setArrayImages(null);
   };
+
+  var formData = new FormData();
 
   return (
     <div className="cont-fromNewAnounce">
@@ -89,12 +100,19 @@ export const CreateAnounceForm = () => {
           accept="image/png, .jpeg, .jpg"
           multiple
           onChange={(e) => {
+            
+            var files = e.target.files
+            console.log("🚀 ~ files", files)
+            
             for (let i = 0; i < e.target.files.length; i++)
             {
-              setArrayImages(arrayImages => [...arrayImages, e.target.files[i]])
-              console.log(e.target.files[i]) 
-            }                        
-            console.log(e.target.files.length)
+              formData.append(`file`, e.target.files[i])
+              // console.log(`imagen ${i}`, e.target.files[i], e.target.files[i].name) 
+              console.log(`file${i}`, e.target.files[i]) 
+            }  
+            console.log("🚀 ~~ formData", formData)
+            
+            setArrayImages(formData)
             console.log(arrayImages)
           }}
         />
