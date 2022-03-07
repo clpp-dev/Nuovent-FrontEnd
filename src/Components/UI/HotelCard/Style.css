@@ -1,3 +1,8 @@
+.grid-card{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
 .card{
     background-color: rgb(6, 236, 236);
     padding: 0em 0em 1em;
@@ -21,7 +26,8 @@
 
 .card img {
     width: 100%;
-    
+    max-width: 250px;
+    height: 250px;
 }
 .card ul {
     list-style: none;

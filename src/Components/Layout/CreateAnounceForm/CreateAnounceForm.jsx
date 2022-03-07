@@ -1,41 +1,76 @@
 import "./Style.css";
 import React, { useState } from "react";
+
 import jwt from "jwt-decode";
+import axios from "axios";
 
 export const CreateAnounceForm = () => {
   const [nomAnounce, setNomAnounce] = useState("");
   const [description, setDescription] = useState("");
   const [numCapacity, setNumCapacity] = useState("");
   const [location, setLocation] = useState("");
-  const [arrayImages, setArrayImages] = useState([]);
+  const [arrayImages, setArrayImages] = useState();
 
+var formData = new FormData();
+
+ 
   const newAnounce = async (e) => {
     e.preventDefault();
-    const res = await fetch("https://nuovent.herokuapp.com/anuncio", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        nomAnounce,
-        description,
-        numCapacity,
-        location,
-        arrayImages
-      }),
-    });
-    const data = await res.json();
-    console.log(data);
-    var token = data;
-    var decoded = await jwt(token);
-    console.log("🚀🚀🚀~decoded UID", decoded.uid);
+    
+
+    formData.append("anuncio", nomAnounce);
+    formData.append("descripcion", description);
+    formData.append("capacidad", numCapacity);
+    formData.append("localizacion", location);
+
+  for(let i = 0; i < arrayImages.length; i++) {
+    formData.append(`file${i}`,arrayImages[i])
+  }
+  console.log(arrayImages)
+    // formData.append("imagenes", arrayImages);
+
+
+
+    axios.post("http://127.0.0.1:5000/anuncio",formData)
+    // const res = await fetch("http://127.0.0.1:5000/anuncio", {
+    //   method: "POST",
+    //   headers: {
+    //     // "Content-Type": "application/json",
+    //     "Content-Type": "application/form-data",
+    //   },
+    //   // body: JSON.stringify({
+    //   //   nomAnounce,
+    //   //   description,
+    //   //   numCapacity,
+    //   //   location,
+    //   //   arrayImages
+    //   // }),
+    //   body:(
+    //     nomAnounce,
+    //     description,
+    //     numCapacity,
+    //     location,
+    //     formData
+    //   ),
+    // });
+    // const data = await res.json();
+    // console.log(data);
+    // // var token = data;
+    // // var decoded = await jwt(token);
+    // // console.log("🚀🚀🚀~decoded UID", decoded.uid);
 
     setNomAnounce("");
     setDescription("");
     setNumCapacity("");
     setLocation("");
-    setArrayImages([])
+    setArrayImages(null);
   };
+
+  function numImagesError(e) {
+    e.target.value = null;
+    alert("Error: SOLO PUEDE SUBIR HASTA 6 IMAGENES")
+  }
+ 
 
   return (
     <div className="cont-fromNewAnounce">
@@ -47,6 +82,7 @@ export const CreateAnounceForm = () => {
           onChange={(e) => setNomAnounce(e.target.value)}
           value={nomAnounce}
           className=""
+          name="nomAnounce"
           type="text"
           placeholder="Titulo del anuncio"
           required
@@ -82,21 +118,16 @@ export const CreateAnounceForm = () => {
           required
         />
 
-        <label className="">Sube imágenes</label>
+        <label className="">Sube hasta 6 imágenes</label>
         <input
-          name="images"
+        // onChange={(e) => setArrayImages(e.target.files)}
+        onChange={(e) => { e.target.files.length >= 7 || e.target.files.length < 0 ?  numImagesError(e) : setArrayImages(e.target.files)}
+                    
+      }
+          name="file"
           type="file"
           accept="image/png, .jpeg, .jpg"
           multiple
-          onChange={(e) => {
-            for (let i = 0; i < e.target.files.length; i++)
-            {
-              setArrayImages(arrayImages => [...arrayImages, e.target.files[i]])
-              console.log(e.target.files[i]) 
-            }                        
-            console.log(e.target.files.length)
-            console.log(arrayImages)
-          }}
         />
 
         <button className="button">Crear Anuncio</button>

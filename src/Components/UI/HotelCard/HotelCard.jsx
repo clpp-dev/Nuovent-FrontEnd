@@ -1,28 +1,22 @@
 import "./Style.css"
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Button } from "../Button/Button"
 
-export const HotelCard = () => {
+export const HotelCard = ({anounces}) => {
+  console.log(anounces);
   return (
-    <div className="card">
-      <div className="imgCard">
-        <img src="https://images.pexels.com/photos/2775196/pexels-photo-2775196.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="IMAGEN" />
-      </div>
-      <div className="cardContain">
-        <h3>Hotel campestre SENA</h3>
-        <ul>
-            <li>Cuidad: Armenia</li>
-            <li>Capacidad: 180pax</li>
-            <li>Tipo: Rural</li>
-        </ul>
-        <Button text="Ver más"/>
-      </div>
+    <div className="grid-card">
+      {
+        anounces.map((item, index) => (
+        <div key={index} className="card">
+          <img className="imgCard" src={item.arrayImages[0]} alt="" />
+          <h5 className="">{item.nomAnounce}</h5>
+          <p className="">{item.description}</p>
+          <p className="">{item.numCapacity}</p>
+          <p className="">{item.location}</p>
+          <Button text="Ver más"/>
+        </div>
+      ))}
     </div>
   )
 }
-
-HotelCard.propTypes = {
-
-}
-
