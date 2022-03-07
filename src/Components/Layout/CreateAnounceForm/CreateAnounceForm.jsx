@@ -66,7 +66,10 @@ var formData = new FormData();
     setArrayImages(null);
   };
 
-
+  function numImagesError(e) {
+    e.target.value = null;
+    alert("Error: SOLO PUEDE SUBIR HASTA 6 IMAGENES")
+  }
  
 
   return (
@@ -115,14 +118,16 @@ var formData = new FormData();
           required
         />
 
-        <label className="">Sube imágenes</label>
+        <label className="">Sube hasta 6 imágenes</label>
         <input
-        onChange={(e) => setArrayImages(e.target.files)}
+        // onChange={(e) => setArrayImages(e.target.files)}
+        onChange={(e) => { e.target.files.length >= 7 || e.target.files.length < 0 ?  numImagesError(e) : setArrayImages(e.target.files)}
+                    
+      }
           name="file"
           type="file"
           accept="image/png, .jpeg, .jpg"
           multiple
-         
         />
 
         <button className="button">Crear Anuncio</button>
