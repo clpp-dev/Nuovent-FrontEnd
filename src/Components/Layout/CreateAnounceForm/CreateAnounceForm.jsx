@@ -31,7 +31,7 @@ var formData = new FormData();
 
 
 
-    axios.post("http://127.0.0.1:5000/anuncio",formData)
+    axios.post("https://nuoventr.herokuapp.com/anuncio",formData)
     // const res = await fetch("http://127.0.0.1:5000/anuncio", {
     //   method: "POST",
     //   headers: {
