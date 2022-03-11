@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 export const Button = ({text}) => {
   return (
     <div className="cont-button">
-        <button className="neumorphism-button">{text}</button>
+        <button className="btn btn-primary">{text}</button>
     </div>
   )
 }
