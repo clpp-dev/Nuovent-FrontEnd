@@ -10,8 +10,7 @@ export const LoginForm = () => {
 
     const newLogin = async (e) => {
         e.preventDefault();
-        // console.log(`ENVIANDO... ${email}, ${password}`)
-        const res = await fetch('https://nuovent.herokuapp.com/login',{
+        const res = await fetch('https://nuoventr.herokuapp.com/login',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -38,32 +37,52 @@ export const LoginForm = () => {
     }
 
     return (
-        <div className="contFormLogin">
+        <div className="w-75">
             <form onSubmit={newLogin}
-            className="formLogin">
-
+            className="">
                 <h2 className="">Login</h2>
+                <div className="form-floating mb-3">
+                    <input
+                        onChange={e =>setEmail(e.target.value)}
+                        value={email}
+                        type="email"
+                        className="form-control"
+                        id="floatingInput"
+                        placeholder="name@example.com"/>
+                    <label htmlFor="floatingInput">Email ó Nombre de usuario</label>
+                </div>
+                <div className="form-floating">
+                    <input
+                        onChange={e =>setPassword(e.target.value)}
+                        value={password}
+                        type="password"
+                        className="form-control"
+                        id="floatingPassword"
+                        placeholder="Password"/>
+                    <label htmlFor="floatingPassword">Contraseña</label>
+                </div>
+                <button type="submit" className="btn btn-primary mt-3 form-control p-2 fs-5">Enviar</button>
 
-                <label className="">Email / Nombre de usuario</label>
+            </form>
+        </div>
+    )
+}
+
+
+                {/* <label className="">Email / Nombre de usuario</label>
                 <input 
                 onChange={e =>setEmail(e.target.value)}
                 value={email}
                 className=""
                 type="text"
                 placeholder="Email o nombre de usuario"
-                />
+                /> */}
 
-                <label className="">Contraseña</label>
+                {/* <label className="">Contraseña</label>
                 <input
                 onChange={e =>setPassword(e.target.value)}
                 value={password}
                 className=""
                 type="password"
                 placeholder="Contraseña"
-                />
-
-                <button className="button">Enviar</button>
-            </form>
-        </div>
-    )
-}
+                /> */}

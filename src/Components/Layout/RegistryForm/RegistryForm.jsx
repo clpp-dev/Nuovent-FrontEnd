@@ -12,7 +12,7 @@ export const RegistryForm = () => {
 
     const newRegistry = async (e) => {
         e.preventDefault();
-        const res = await fetch('https://nuovent.herokuapp.com/registro',{
+        const res = await fetch('https://nuoventr.herokuapp.com/registro',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ export const RegistryForm = () => {
         console.log(data)
         var token = data;
         var decoded = await jwt(token);
-        
+
         console.log("🚀🚀🚀~decoded UID", decoded.uid)
 
         setNombre("");
@@ -42,73 +42,75 @@ export const RegistryForm = () => {
     }
 
     return (
-        <div className="cont-fromRegistry">
+            <div className="w-100 d-flex justify-content-center">
             <form onSubmit={newRegistry}
-            className="formRegistry">
+            className="w-75">
+                <div className="form-floating mb-3">
+                    <input
+                        onChange={e =>setNombre(e.target.value)}
+                        value={nombre}
+                        type="text"
+                        className="form-control"
+                        id="floatingInputName"
+                        placeholder="name@example.com"/>
+                    <label htmlFor="floatingInputName">Nombre*</label>
+                </div>
+                <div className="row ">
+                    <div className="form-floating col-md-4">
+                        <select
+                            onChange={e =>setTypeDoc(e.target.value)}
+                            value={typeDoc}
+                            id="inputState"
+                            className="form-select">
+                            <option defaultValue>Tipo documento</option>
+                            <option >CC</option>
+                            <option>NIT</option>
+                        </select>
+                    </div>
+                    <div className="form-floating mb-3 col-md-8">
+                        <input
+                            onChange={e =>setNumDoc(e.target.value)}
+                            value={numDoc}
+                            type="text"
+                            className="form-control"
+                            id="floatingInputTypeDoc"
+                            placeholder="name@example.com"/>
+                        <label htmlFor="floatingInputTypeDoc">Número Documento</label>
+                    </div>
+                </div>
+                <div className="form-floating mb-3">
+                    <input
+                        onChange={e =>setUserName(e.target.value)}
+                        value={userName}
+                        type="text"
+                        className="form-control"
+                        id="floatingInputUserName"
+                        placeholder="name@example.com"/>
+                    <label htmlFor="floatingInputUserName">Nombre de usuario</label>
+                </div>
+                <div className="form-floating mb-3">
+                    <input
+                        onChange={e =>setEmail(e.target.value)}
+                        value={email}
+                        type="email"
+                        className="form-control"
+                        id="floatingInputEmail"
+                        placeholder="name@example.com"/>
+                    <label htmlFor="floatingInputEmail">Email ó Nombre de usuario</label>
+                </div>
+                <div className="form-floating">
+                    <input
+                        onChange={e =>setPassword(e.target.value)}
+                        value={password}
+                        type="password"
+                        className="form-control"
+                        id="floatingPassword"
+                        placeholder="Password"/>
+                    <label htmlFor="floatingPassword">Contraseña</label>
+                </div>
+                <button type="submit" className="btn btn-primary mt-3 form-control p-2 fs-5">Enviar</button>
 
-                <h2 className="">Registro</h2>
-
-                <label className="">Nombre*</label>
-                <input 
-                onChange={e =>setNombre(e.target.value)}
-                value={nombre}
-                className=""
-                type="text"
-                placeholder="Nombre"
-                required
-                />
-
-                <label className="">Tipo Documento*</label>
-                <input 
-                onChange={e =>setTypeDoc(e.target.value)}
-                value={typeDoc}
-                className=""
-                type="text"
-                placeholder="Tipo Documento"
-                required
-                />
-
-                <label className="">Numero de documento</label>
-                <input 
-                onChange={e =>setNumDoc(e.target.value)}
-                value={numDoc}
-                className=""
-                type="text"
-                placeholder="Numero de documento"
-                required
-                />
-
-                <label className="">Nombre de usuario</label>
-                <input 
-                onChange={e =>setUserName(e.target.value)}
-                value={userName}
-                className=""
-                type="text"
-                placeholder="Nombre de usuario"
-                required
-                />
-
-                <label className="">Email*</label>
-                <input 
-                onChange={e =>setEmail(e.target.value)}
-                value={email}
-                className=""
-                type="email"
-                placeholder="Email"
-                required
-                />
-
-                <label className="">Contraseña*</label>
-                <input
-                onChange={e =>setPassword(e.target.value)}
-                value={password}
-                className=""
-                type="password"
-                placeholder="Contraseña"
-                required
-                />
-
-                <button className="button">Enviar</button>
+                
             </form>
         </div>
     )
