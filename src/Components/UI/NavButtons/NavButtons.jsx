@@ -5,30 +5,26 @@ import { ImHome } from 'react-icons/im';
 import { GiPartyPopper } from 'react-icons/gi';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 import { FiLogIn } from 'react-icons/fi';
+import { IoIosCreate } from 'react-icons/io';
+
 
 
 export const NavButtons = () => {
   return (
-      <nav className="cont-buttons" >
-        <ul>
-          <li >
-            <NavLink to="/" className="nav-button"><ImHome/>Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/zonaeventos" className="nav-button"><GiPartyPopper/>Zona Eventos</NavLink>
-          </li>
-          <li>
-            <NavLink to="/registro" className="nav-button"><AiOutlineUserAdd/>Registro</NavLink>
-          </li>
-          <li>
-            <NavLink to="/login" className="nav-button"><FiLogIn/>Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="/crearanuncio" className="nav-button"><FiLogIn/>Crear Anuncio</NavLink>
-          </li>
-        </ul>
-        
-      </nav>
+      <>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon" />
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+            <NavLink to="/" className="nav-link"><ImHome/>Home</NavLink>
+            <NavLink to="/zonaeventos" className="nav-link"><GiPartyPopper/>Zona Eventos</NavLink>
+            <NavLink to="/registro" className="nav-link"><AiOutlineUserAdd/>Registro</NavLink>
+            <NavLink to="/login" className="nav-link"><FiLogIn/>Login</NavLink>
+            <NavLink to="/crearanuncio" className="nav-link"><IoIosCreate/>Crear Anuncio</NavLink>
+          </div>
+        </div>
+      </>
   )
 }
 

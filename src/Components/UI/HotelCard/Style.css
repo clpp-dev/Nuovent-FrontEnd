@@ -4,7 +4,7 @@
 }
 
 .card{
-    background-color: rgb(6, 236, 236);
+    background-color: rgb(236, 6, 6);
     padding: 0em 0em 1em;
     font-family: "Poppins", "Montzerrat";
     border-radius: 0.2rem;
@@ -21,7 +21,7 @@
     border-radius: 7px;
     /* background: linear-gradient(180deg,#00d2ff, #3a7bd5); */
     box-shadow: inset 10px 10px 15px rgba(0,0,0,0.1),
-                inset -1px -1px 15px #83B3FA;
+                inset -1px -1px 15px #0066ff;
 }
 
 .card img {

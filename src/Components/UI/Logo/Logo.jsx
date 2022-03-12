@@ -4,9 +4,10 @@ import ImgLogo from '../../../Img/logo-500x500.png'
 
 export const Logo = () => {
   return (
-    <div className="cont-logo">
-      <img src={ImgLogo} alt="Nuovent.com" />
-    </div>
+      <a className="navbar-brand" href="#">
+        <img src={ImgLogo} alt="Nuovent.com" width={50} height={50} className="d-inline-block align-text-top" />
+        Bootstrap
+      </a>
   )
 }
 

@@ -8,7 +8,7 @@ export const Featured = () => {
 const [lastAnounoces, setLastAnounoces] = useState([])
 
     const urlApi = "https://nuoventr.herokuapp.com/home"
-    console.log("🚀 ~ line 11 urlApi", urlApi)
+    // console.log("🚀 ~ line 11 urlApi", urlApi)
     const fetchLastAnounces = async (url) =>{
         fetch(url)
         .then(response => response.json())
