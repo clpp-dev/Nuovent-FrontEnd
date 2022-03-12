@@ -29,11 +29,6 @@ var formData = new FormData();
 
     axios.post("https://nuoventr.herokuapp.com/anuncio",formData)
 
-<<<<<<< HEAD
-
-    axios.post("https://nuoventr.herokuapp.com/anuncio",formData)
-=======
->>>>>>> 82e39e62d10877ea66f0929fd485a260bbcd5e42
     // const res = await fetch("http://127.0.0.1:5000/anuncio", {
     //   method: "POST",
     //   headers: {
