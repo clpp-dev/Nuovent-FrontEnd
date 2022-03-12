@@ -17,10 +17,10 @@ var formData = new FormData();
     e.preventDefault();
     
 
-    formData.append("anuncio", nomAnounce);
-    formData.append("descripcion", description);
-    formData.append("capacidad", numCapacity);
-    formData.append("localizacion", location);
+    formData.append("nomAnounce", nomAnounce);
+    formData.append("description", description);
+    formData.append("numCapacity", numCapacity);
+    formData.append("location", location);
 
   for(let i = 0; i < arrayImages.length; i++) {
     formData.append(`file${i}`,arrayImages[i])
