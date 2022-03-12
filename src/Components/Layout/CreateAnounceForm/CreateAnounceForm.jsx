@@ -13,7 +13,6 @@ export const CreateAnounceForm = () => {
 
 var formData = new FormData();
 
- 
   const newAnounce = async (e) => {
     e.preventDefault();
     
@@ -27,31 +26,16 @@ var formData = new FormData();
     formData.append(`file${i}`,arrayImages[i])
   }
   console.log(arrayImages)
-    // formData.append("imagenes", arrayImages);
 
+    axios.post("https://nuoventr.herokuapp.com/anuncio",formData)
 
-
-    axios.post("http://127.0.0.1:5000/anuncio",formData)
     // const res = await fetch("http://127.0.0.1:5000/anuncio", {
     //   method: "POST",
     //   headers: {
-    //     // "Content-Type": "application/json",
-    //     "Content-Type": "application/form-data",
+    //    "Content-Type": "application/form-data",
     //   },
-    //   // body: JSON.stringify({
-    //   //   nomAnounce,
-    //   //   description,
-    //   //   numCapacity,
-    //   //   location,
-    //   //   arrayImages
     //   // }),
-    //   body:(
-    //     nomAnounce,
-    //     description,
-    //     numCapacity,
-    //     location,
-    //     formData
-    //   ),
+    //   body: formData
     // });
     // const data = await res.json();
     // console.log(data);
