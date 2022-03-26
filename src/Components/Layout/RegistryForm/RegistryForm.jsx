@@ -7,6 +7,7 @@ export const RegistryForm = () => {
     const [typeDoc, setTypeDoc] = useState ("")
     const [numDoc, setNumDoc] = useState ("")
     const [userName, setUserName] = useState ("")
+    const [phone, setPhone] = useState ("")
     const [email, setEmail] = useState ("")
     const [password, setPassword] = useState ("")
 
@@ -22,6 +23,7 @@ export const RegistryForm = () => {
                 typeDoc,
                 numDoc,
                 userName,
+                phone,
                 email,
                 password
             })
@@ -78,16 +80,30 @@ export const RegistryForm = () => {
                         <label htmlFor="floatingInputTypeDoc">Número Documento</label>
                     </div>
                 </div>
-                <div className="form-floating mb-3">
-                    <input
-                        onChange={e =>setUserName(e.target.value)}
-                        value={userName}
-                        type="text"
-                        className="form-control"
-                        id="floatingInputUserName"
-                        placeholder="name@example.com"/>
-                    <label htmlFor="floatingInputUserName">Nombre de usuario</label>
+                
+                <div className="row ">
+                    <div className="form-floating col-md-4">
+                        <input
+                            onChange={e =>setUserName(e.target.value)}
+                            value={userName}
+                            type="text"
+                            className="form-control"
+                            id="floatingInputUserName"
+                            placeholder="name@example.com"/>
+                        <label htmlFor="floatingInputUserName">Nombre de usuario</label>
+                    </div>
+                    <div className="form-floating mb-3 col-md-8">
+                        <input
+                            onChange={e =>setPhone(e.target.value)}
+                            value={phone}
+                            type="number"
+                            className="form-control"
+                            id="floatingInputPhone"
+                            placeholder="name@example.com"/>
+                        <label htmlFor="floatingInputPhone">Numero de telefono</label>
+                    </div>
                 </div>
+
                 <div className="form-floating mb-3">
                     <input
                         onChange={e =>setEmail(e.target.value)}
