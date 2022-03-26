@@ -17,7 +17,7 @@ export const Location = () => {
         >
           Todos los anuncios
           <span className="d-block small opacity-50">
-            Ve todos los aununcios disponibles
+            Ve todos los anuncios disponibles
           </span>
         </label>
         <input
@@ -33,7 +33,7 @@ export const Location = () => {
         >
           Quindío
           <span className="d-block small opacity-50">
-            Departaemnto en el centro del Colombia
+            Departamento en el centro del Colombia
           </span>
         </label>
       </div>

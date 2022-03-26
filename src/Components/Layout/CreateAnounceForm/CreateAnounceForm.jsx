@@ -1,7 +1,5 @@
 import "./Style.css";
 import React, { useState } from "react";
-
-import jwt from "jwt-decode";
 import axios from "axios";
 
 export const CreateAnounceForm = () => {
@@ -15,8 +13,6 @@ var formData = new FormData();
 
   const newAnounce = async (e) => {
     e.preventDefault();
-    
-
     formData.append("anuncio", nomAnounce);
     formData.append("descripcion", description);
     formData.append("capacidad", numCapacity);
@@ -28,20 +24,6 @@ var formData = new FormData();
   console.log(arrayImages)
 
     axios.post("https://nuoventr.herokuapp.com/anuncio",formData)
-
-    // const res = await fetch("http://127.0.0.1:5000/anuncio", {
-    //   method: "POST",
-    //   headers: {
-    //    "Content-Type": "application/form-data",
-    //   },
-    //   // }),
-    //   body: formData
-    // });
-    // const data = await res.json();
-    // console.log(data);
-    // // var token = data;
-    // // var decoded = await jwt(token);
-    // // console.log("🚀🚀🚀~decoded UID", decoded.uid);
 
     setNomAnounce("");
     setDescription("");
