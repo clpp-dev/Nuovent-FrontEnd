@@ -5,6 +5,8 @@ import { Home } from "./Components/Page/Home/Home";
 import { Registry } from "./Components/Page/Registry/Registry";
 import { Login } from "./Components/Page/Login/Login";
 import { CreateAnounceForm } from "./Components/Layout/CreateAnounceForm/CreateAnounceForm";
+import { Footer } from "./Components/Layout/Footer/Footer";
+import { EventZone } from "./Components/Page/EventZone/EventZone";
 
 function App() {
   return (
@@ -12,14 +14,16 @@ function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
-            <Route path="/zonaeventos" element={<CreateAnounceForm/>} />
-            <Route path="/registro" element={<Registry/>} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/crearanuncio" element={<CreateAnounceForm/>} />
+            <Route exact path="/home" element={<Home/>} />
+            <Route exact path="/zonaeventos" element={<EventZone/>} />
+            <Route exact path="/registro" element={<Registry/>} />
+            <Route exact path="/login" element={<Login/>} />
+            <Route exact path="/crearanuncio" element={<CreateAnounceForm/>} />
             <Route path="*" element={<div>Pagina no encontrada</div>} />
             <Route path="/" element={<Home/>} />
         </Routes>
       </BrowserRouter>
+      <Footer/>
     </div>
   );
 }

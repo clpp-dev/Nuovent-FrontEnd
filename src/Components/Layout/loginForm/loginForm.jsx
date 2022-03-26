@@ -31,7 +31,11 @@ export const LoginForm = () => {
         let stateUser= await decoded.claims.state
         console.log("🚀 ~ file: loginForm.jsx ~ line 33 ~ newLogin ~ stateUser", stateUser)
         console.log("🚀🚀🚀~decoded CLAIMS", decoded)
-        stateUser === 2 ? navigate("/crearanuncio") : alert("Datos invalidos")
+        // stateUser === 2 ? navigate("/crearanuncio") : alert("Datos invalidos")
+        stateUser === 1 ? navigate("/home") :
+        stateUser === 2 ? navigate("/crearanuncio") :
+        stateUser === 3 ? alert("USTED ES UN PROVEEDOR") : alert("Datos Invalidos")
+
         // setEmail("");
         // setPassword("");
     }

@@ -26,12 +26,12 @@ export const RegistryForm = () => {
                 password
             })
         })
-        const data = await res.json();
-        console.log(data)
-        var token = data;
-        var decoded = await jwt(token);
+        // const data = await res.json();
+        // console.log(data)
+        // var token = data;
+        // var decoded = await jwt(token);
 
-        console.log("🚀🚀🚀~decoded UID", decoded.uid)
+        // console.log("🚀🚀🚀~decoded UID", decoded.uid)
 
         setNombre("");
         setTypeDoc("");

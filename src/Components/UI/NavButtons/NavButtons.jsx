@@ -7,8 +7,6 @@ import { AiOutlineUserAdd } from 'react-icons/ai';
 import { FiLogIn } from 'react-icons/fi';
 import { IoIosCreate } from 'react-icons/io';
 
-
-
 export const NavButtons = () => {
   return (
       <>

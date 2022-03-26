@@ -131,6 +131,7 @@ var formData = new FormData();
                     type="file"
                     id="formFileMultiple"
                     multiple
+                    accept="image/jpeg"
                   />
                 </div>
 
