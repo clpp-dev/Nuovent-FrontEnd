@@ -13,23 +13,23 @@ var formData = new FormData();
 
   const newAnounce = async (e) => {
     e.preventDefault();
-    formData.append("anuncio", nomAnounce);
-    formData.append("descripcion", description);
-    formData.append("capacidad", numCapacity);
-    formData.append("localizacion", location);
+    formData.append("nomAnounce", nomAnounce);
+    formData.append("description", description);
+    formData.append("location", location);
+    formData.append("numCapacity", numCapacity);
 
-  for(let i = 0; i < arrayImages.length; i++) {
-    formData.append(`file${i}`,arrayImages[i])
-  }
-  console.log(arrayImages)
+    for(let i = 0; i < arrayImages.length; i++) {
+      formData.append(`file${i}`,arrayImages[i])
+    }
+    console.log(arrayImages)
 
     axios.post("https://nuoventr.herokuapp.com/anuncio",formData)
 
     setNomAnounce("");
     setDescription("");
-    setNumCapacity("");
     setLocation("");
-    setArrayImages([]);
+    setNumCapacity("");
+    setArrayImages(null);
   };
 
   function numImagesError(e) {
