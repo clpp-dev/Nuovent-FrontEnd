@@ -5,46 +5,30 @@ import { Link } from "react-router-dom";
 import Logo from "../../../Img/logo-500x500.png"
 
 
-export const HotelCard = ({anounces}, {colums}) => {
+export const HotelCard = ({anounces}) => {
   console.log(anounces);
-  console.log(colums);
+
   return (
-    <div className={`row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5`}>
+    <div className={`row row-cols-1 row-cols-lg-2 row-cols-xl-3  align-items-stretch g-4 py-5`}>
       {
         anounces.map((item, index) => (
           <div key={index} className="col">
           <div
-            className="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-            style={{ backgroundImage: `url('${item.picture1}')` }}
+            className="card card-cover h-100 overflow-hidden text-white bg-dark rounded shadow-lg"
+            style={{ backgroundImage: `url('${item[1].picture1}')` }}
           >
-            <div className="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-              <h2 className="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
-                {item.nomAnounce}
+            <div className="d-flex flex-column justify-content-center h-100 py-3 text-white text-shadow-1 align-items-center">
+              <h2 className="pt-5 mt-5 mb-4 display-10 lh-1 fw-bold">
+                {item[1].nomAnounce}
               </h2>
-              <ul className="d-flex list-unstyled mt-auto">
-                <li className="me-auto">
-                  <img
-                    src={Logo}
-                    alt="Nuovent"
-                    width={32}
-                    height={32}
-                    className="rounded-circle border border-white"
-                  />
-                </li>
-                <li className="d-flex align-items-center me-3">
-                  <svg className="bi me-2" width="1em" height="1em">
-                    <use xlinkHref="#geo-fill" />
-                  </svg>
-                  <small>{item.location}</small>
-                </li>
-                <li className="d-flex align-items-center">
-                  <svg className="bi me-2" width="1em" height="1em">
-                    {/* <use xlinkHref="#calendar3" /> */}
-                  </svg>
-                  <small>Capacidad: {item.numCapacity}</small>
+              <ul className="d-flex list-unstyled mt-auto justify-content-center align-items-center">
+                <li className="d-flex flex-column align-items-center mx-1">
+                  <p className="fs-5">{item[1].location}</p>
+                  <p className="fs-5">Capacidad {item[1].numCapacity}</p>
                 </li>
               </ul>
             </div>
+            <a href="#" className="btn btn-dark rounded-0 py-3 m-0">Ver más</a>
           </div>
         </div>
       ))}

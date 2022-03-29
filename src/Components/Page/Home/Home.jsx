@@ -3,6 +3,7 @@ import React from "react";
 import { Featured } from "../../Layout/Featured/Featured";
 import { TittleH2 } from "../../UI/TittleH2/TittleH2";
 import { SectionCardsHome } from "../../Layout/SectionCardsHome/SectionCardsHome";
+import VideoBg from "../../../Video/Video-bg.mp4";
 
 export const Home = () => {
   return (

@@ -14,12 +14,12 @@ export const NavButtons = () => {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div className="navbar-nav">
-            <NavLink to="/" className="nav-link"><ImHome/>Home</NavLink>
-            <NavLink to="/zonaeventos" className="nav-link"><GiPartyPopper/>Zona Eventos</NavLink>
-            <NavLink to="/registro" className="nav-link"><AiOutlineUserAdd/>Registro</NavLink>
-            <NavLink to="/login" className="nav-link"><FiLogIn/>Login</NavLink>
-            <NavLink to="/crearanuncio" className="nav-link"><IoIosCreate/>Crear Anuncio</NavLink>
+          <div className="navbar-nav ms-0 ms-md-3 d-flex flex-wrap">
+            <NavLink to="/" className="nav-link rounded d-flex flex-column justify-content-center align-items-center"><ImHome className="" />Home</NavLink>
+            <NavLink to="/zonaeventos" className="nav-link d-flex flex-column justify-content-center align-items-center"><GiPartyPopper className="" />Zona Eventos</NavLink>
+            <NavLink to="/registro" className="nav-link d-flex flex-column justify-content-center align-items-center"><AiOutlineUserAdd className="" />Registro</NavLink>
+            <NavLink to="/login" className="nav-link d-flex flex-column justify-content-center align-items-center"><FiLogIn className="" />Login</NavLink>
+            <NavLink to="/crearanuncio" className="nav-link d-flex flex-column justify-content-center align-items-center"><IoIosCreate className="" />Crear Anuncio</NavLink>
           </div>
         </div>
       </>
