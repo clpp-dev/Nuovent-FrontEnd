@@ -4,10 +4,12 @@ import { Featured } from "../../Layout/Featured/Featured";
 import { TittleH2 } from "../../UI/TittleH2/TittleH2";
 import { SectionCardsHome } from "../../Layout/SectionCardsHome/SectionCardsHome";
 import VideoBg from "../../../Video/Video-bg.mp4";
+import { Carousel } from "../../UI/Carousel/Carousel";
 
 export const Home = () => {
   return (
     <div className="container-fluid bg-light p-0 d-flex flex-column">
+      <Carousel/>
       <div className="sectionOne">
         <div className="sectionHero">
           <TittleH2 textTittle="Encuentra tu espacio ideal con nosotros!"/>

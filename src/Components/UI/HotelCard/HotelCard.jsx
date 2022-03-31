@@ -1,12 +1,13 @@
 import "./Style.css"
 import React from 'react'
 import { Button } from "../Button/Button"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../../Img/logo-500x500.png"
 
 
 export const HotelCard = ({anounces}) => {
   console.log(anounces);
+  const navigate = useNavigate()
 
   return (
     <div className={`row row-cols-1 row-cols-lg-2 row-cols-xl-3  align-items-stretch g-4 py-5`}>
@@ -28,7 +29,11 @@ export const HotelCard = ({anounces}) => {
                 </li>
               </ul>
             </div>
-            <a href="#" className="btn btn-dark rounded-0 py-3 m-0">Ver más</a>
+            <a className="btn btn-dark rounded-0 py-3 m-0"
+              onClick={async (e) => {
+                navigate(`/anuncio/${item[0]}`);
+              }}
+            >Ver más</a>
           </div>
         </div>
       ))}

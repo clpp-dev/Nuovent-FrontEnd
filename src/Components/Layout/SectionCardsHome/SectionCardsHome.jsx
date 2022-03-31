@@ -22,7 +22,7 @@ useEffect(() =>{
   return (
     <div className="container px-4 py-5" id="custom-cards">
       <h2 className="pb-2 border-bottom">Últimos agregados</h2>
-        <HotelCard anounces={lastAnounoces} colums="3"/>
+        <HotelCard anounces={lastAnounoces} />
     </div>
   );
 }
