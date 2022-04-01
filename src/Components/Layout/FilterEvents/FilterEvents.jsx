@@ -37,7 +37,7 @@ fetchAnounces(urlApi)
       <div className="col-md-8 container px-0 py-5">
         <h2 className="pb-2 mb-0 border-bottom">Anuncios</h2>
         <small>Total Anuncios: {lengthAnounces}</small>
-          <HotelCard anounces={anounoces} colums="2"/>
+          <HotelCard anounces={anounoces} columns={2}/>
       </div>
     </div>
   )

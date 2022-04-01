@@ -3,13 +3,16 @@ import React from "react";
 import { Featured } from "../../Layout/Featured/Featured";
 import { TittleH2 } from "../../UI/TittleH2/TittleH2";
 import { SectionCardsHome } from "../../Layout/SectionCardsHome/SectionCardsHome";
-import VideoBg from "../../../Video/Video-bg.mp4";
 import { Carousel } from "../../UI/Carousel/Carousel";
 
 export const Home = () => {
   return (
     <div className="container-fluid bg-light p-0 d-flex flex-column">
-      <Carousel/>
+      <Carousel 
+        picture1="https://images.pexels.com/photos/64102/pexels-photo-64102.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        picture2="https://images.pexels.com/photos/1166209/pexels-photo-1166209.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        picture3="https://images.pexels.com/photos/461755/pexels-photo-461755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      />
       <div className="sectionOne">
         <div className="sectionHero">
           <TittleH2 textTittle="Encuentra tu espacio ideal con nosotros!"/>

@@ -1,16 +1,14 @@
 import "./Style.css"
 import React from 'react'
-import { Button } from "../Button/Button"
-import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../../Img/logo-500x500.png"
+import { useNavigate } from "react-router-dom";
 
-
-export const HotelCard = ({anounces}) => {
+export const HotelCard = ({anounces, columns}) => {
   console.log(anounces);
+  console.log(columns);
   const navigate = useNavigate()
 
   return (
-    <div className={`row row-cols-1 row-cols-lg-2 row-cols-xl-3  align-items-stretch g-4 py-5`}>
+    <div className={`row row-cols-1 row-cols-lg-${columns} row-cols-xl-3  align-items-stretch g-4 py-5`}>
       {
         anounces.map((item, index) => (
           <div key={index} className="col">
@@ -29,25 +27,14 @@ export const HotelCard = ({anounces}) => {
                 </li>
               </ul>
             </div>
-            <a className="btn btn-dark rounded-0 py-3 m-0"
+            <button className="btn btn-dark rounded-0 py-3 m-0"
               onClick={async (e) => {
                 navigate(`/anuncio/${item[0]}`);
               }}
-            >Ver más</a>
+              >Ver más</button>
           </div>
         </div>
       ))}
     </div>
   )
 }
-
-// <div key={index} className="card custom-card" style={{width: '18rem'}}>
-// <img className="card-img-top w-100 h-100" src={item.picture1} alt={item.nomAnounce} />
-// <div className="card-body">
-//   <h5 className="card-title">{item.nomAnounce}</h5>
-//   <p className="card-text">Descripcion: {item.description}</p>
-//   <p className="card-text">Capacidad: {item.numCapacity}</p>
-//   <p className="card-text">Lugar: {item.city}</p>
-//   <Link to="/login" className="btn btn-primary">Ver más</Link>
-// </div>
-// </div>

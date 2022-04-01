@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom"
 import "./Style.css";
-import { HotelCard } from "../../UI/HotelCard/HotelCard";
-import { TittleH2 } from "../../UI/TittleH2/TittleH2";
-import Bootstrap1 from "../../../Img/bootstrap-1.png";
 import ImgFeature from "../../../Img/backgrounds/Home-bg1.jpg";
 
 export const Featured = () => {

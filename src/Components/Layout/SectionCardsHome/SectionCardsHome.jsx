@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import img from "../../../Img/backgrounds/Home-bg1.jpg"
 import { HotelCard } from "../../UI/HotelCard/HotelCard";
 
 export function SectionCardsHome() {
@@ -22,7 +21,7 @@ useEffect(() =>{
   return (
     <div className="container px-4 py-5" id="custom-cards">
       <h2 className="pb-2 border-bottom">Últimos agregados</h2>
-        <HotelCard anounces={lastAnounoces} />
+        <HotelCard anounces={lastAnounoces} columns={3} />
     </div>
   );
 }

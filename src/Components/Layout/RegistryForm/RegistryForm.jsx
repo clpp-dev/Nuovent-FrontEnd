@@ -1,6 +1,5 @@
 import "./Style.css";
 import React, { useState } from 'react';
-import jwt from "jwt-decode";
 
 export const RegistryForm = () => {
     const [nombre, setNombre] = useState ("")
@@ -28,12 +27,9 @@ export const RegistryForm = () => {
                 password
             })
         })
-        // const data = await res.json();
-        // console.log(data)
-        // var token = data;
-        // var decoded = await jwt(token);
+        const data = await res.json();
+        console.log(data)
 
-        // console.log("🚀🚀🚀~decoded UID", decoded.uid)
 
         setNombre("");
         setTypeDoc("");

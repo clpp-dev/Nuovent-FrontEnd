@@ -1,7 +1,6 @@
 import React from "react";
 import "./Style.css";
 import { NavButtons } from "../../UI/NavButtons/NavButtons";
-import ImgLogo from "../../../Img/logo-500x500.png"
 import { Logo } from "../../UI/Logo/Logo"
 
 export const NavBar = () => {
