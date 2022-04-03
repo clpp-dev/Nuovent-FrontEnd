@@ -18,9 +18,6 @@ var formData = new FormData();
     formData.append("location", location);
     formData.append("numCapacity", numCapacity);
 
-    // arrayImages.map((index, item) => (
-    //       formData.append(`file${index}`, item)
-    //     ));
 
     for(let i = 0; i < arrayImages.length; i++) {
       formData.append(`file${i}`,arrayImages[i])
