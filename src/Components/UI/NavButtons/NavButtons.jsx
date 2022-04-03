@@ -8,10 +8,11 @@ import { FiLogIn } from 'react-icons/fi';
 import { FiLogOut } from 'react-icons/fi';
 import { IoIosCreate } from 'react-icons/io';
 import { AuthUser } from "../../Helpers/AuthUser/AuthUser";
-// import { Logout } from "../../Helpers/Logout/Logout";
+import { Logout } from "../../Helpers/Logout/Logout";
 
 export const NavButtons = () => {
-  let userIsLoggedIn = AuthUser();
+  const userIsLoggedIn = AuthUser();
+  const stateUser = localStorage.getItem('stateUser')
 
   return (
       <>
@@ -34,14 +35,14 @@ export const NavButtons = () => {
             }
 
             {
-              userIsLoggedIn ?
+              userIsLoggedIn && stateUser === "1" ?
               <NavLink to="/crearanuncio" className="nav-link d-flex flex-column justify-content-center align-items-center"><IoIosCreate className="" />Crear Anuncio</NavLink>
               : ""
             }
 
             {
               userIsLoggedIn ?
-              <NavLink to="/home" className="nav-link d-flex flex-column justify-content-center align-items-center"><FiLogOut className="" />Cerrar Sesión</NavLink>
+              <a href="/home" onClick={Logout} className="nav-link d-flex flex-column justify-content-center align-items-center"><FiLogOut className="" />Cerrar Sesión</a>
               : ""
             }
 

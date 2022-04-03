@@ -7,7 +7,7 @@ export const CreateAnounceForm = () => {
   const [description, setDescription] = useState("");
   const [numCapacity, setNumCapacity] = useState("");
   const [location, setLocation] = useState("");
-  const [arrayImages, setArrayImages] = useState();
+  const [arrayImages, setArrayImages] = useState([]);
 
 var formData = new FormData();
 
@@ -34,6 +34,7 @@ var formData = new FormData();
     setLocation("");
     setNumCapacity("");
     setArrayImages([]);
+    alert("Anuncio registrado con Éxito")
   };
 
   function numImagesError(e) {
@@ -53,7 +54,8 @@ var formData = new FormData();
                         type="text"
                         className="form-control"
                         id="floatingInputTittleAnounce"
-                        placeholder="name@example.com"/>
+                        placeholder="name@example.com"
+                        required />
                     <label htmlFor="floatingInputTittleAnounce">Título del Anuncio</label>
                 </div>
                 
@@ -64,7 +66,8 @@ var formData = new FormData();
                         type="text"
                         className="form-control"
                         id="floatingInputUserName"
-                        placeholder="name@example.com"/>
+                        placeholder="name@example.com"
+                        required />
                     <label htmlFor="floatingInputUserName">Descripcion</label>
                 </div>
 
@@ -74,7 +77,8 @@ var formData = new FormData();
                       onChange={(e) => setLocation(e.target.value)}
                       value={location}
                       id="inputLocation"
-                      className="form-select" >
+                      className="form-select"
+                      required >
                       <option defaultValue>Ubicación</option>
                       <option>Armenia</option>
                       <option>Montenegro</option>
@@ -97,7 +101,7 @@ var formData = new FormData();
                       className="form-control"
                       id="floatingInputCapacity"
                       placeholder="name@example.com"
-                    />
+                      required />
                     <label htmlFor="floatingInputCapacity">Capacidad</label>
                   </div>
                 </div>
@@ -118,7 +122,7 @@ var formData = new FormData();
                     id="formFileMultiple"
                     multiple
                     accept="image/jpeg"
-                  />
+                    required />
                 </div>
 
                 <button type="submit" className="btn btn-primary mt-3 form-control p-2 fs-5">Enviar</button>

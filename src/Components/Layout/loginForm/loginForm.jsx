@@ -32,10 +32,11 @@ export const LoginForm = () => {
       "🚀 ~ file: loginForm.jsx ~ line 33 ~ newLogin ~ stateUser",
       stateUser
     );
+    localStorage.setItem("stateUser", stateUser);
     console.log("🚀🚀🚀~decoded CLAIMS", decoded);
-    stateUser === "1" ? navigate("/home")
-      : stateUser === "2" ? navigate("/crearanuncio")
-      : alert("datos Invalidos");
+    stateUser === "1" ? navigate("/") :
+    stateUser === "2" ? navigate("/home") :
+    alert("Datos Invalidos, inténtalo de nuevo");
     setEmail("");
     setPassword("");
   };

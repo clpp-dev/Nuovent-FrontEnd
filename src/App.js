@@ -24,7 +24,7 @@ function App() {
             <Route exact path="/registro" element={<Registry />} />
             <Route exact path="/login" element={<Login />} />
             <Route path="/anuncio/:IdAnounce" element={<ShowAnounce />} />
-            <Route ath="/" element={<PrivateRoute /> }>
+            <Route element={<PrivateRoute /> }>
               <Route exact path="/crearanuncio" element={<CreateAnounceForm />} />
             </Route>
             <Route path="*" element={<Error404 />}/>
