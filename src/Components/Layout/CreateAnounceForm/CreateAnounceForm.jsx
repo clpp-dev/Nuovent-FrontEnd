@@ -1,7 +1,5 @@
 import "./Style.css";
 import React, { useState } from "react";
-
-import jwt from "jwt-decode";
 import axios from "axios";
 
 export const CreateAnounceForm = () => {
@@ -9,45 +7,31 @@ export const CreateAnounceForm = () => {
   const [description, setDescription] = useState("");
   const [numCapacity, setNumCapacity] = useState("");
   const [location, setLocation] = useState("");
-  const [arrayImages, setArrayImages] = useState();
+  const [arrayImages, setArrayImages] = useState([]);
 
 var formData = new FormData();
 
   const newAnounce = async (e) => {
     e.preventDefault();
-    
-
     formData.append("nomAnounce", nomAnounce);
     formData.append("description", description);
-    formData.append("numCapacity", numCapacity);
     formData.append("location", location);
+    formData.append("numCapacity", numCapacity);
 
-  for(let i = 0; i < arrayImages.length; i++) {
-    formData.append(`file${i}`,arrayImages[i])
-  }
-  console.log(arrayImages)
+
+    for(let i = 0; i < arrayImages.length; i++) {
+      formData.append(`file${i}`,arrayImages[i])
+    }
+    console.log(arrayImages)
 
     axios.post("https://nuoventr.herokuapp.com/anuncio",formData)
 
-    // const res = await fetch("http://127.0.0.1:5000/anuncio", {
-    //   method: "POST",
-    //   headers: {
-    //    "Content-Type": "application/form-data",
-    //   },
-    //   // }),
-    //   body: formData
-    // });
-    // const data = await res.json();
-    // console.log(data);
-    // // var token = data;
-    // // var decoded = await jwt(token);
-    // // console.log("🚀🚀🚀~decoded UID", decoded.uid);
-
     setNomAnounce("");
     setDescription("");
-    setNumCapacity("");
     setLocation("");
+    setNumCapacity("");
     setArrayImages([]);
+    alert("Anuncio registrado con Éxito")
   };
 
   function numImagesError(e) {
@@ -67,7 +51,8 @@ var formData = new FormData();
                         type="text"
                         className="form-control"
                         id="floatingInputTittleAnounce"
-                        placeholder="name@example.com"/>
+                        placeholder="name@example.com"
+                        required />
                     <label htmlFor="floatingInputTittleAnounce">Título del Anuncio</label>
                 </div>
                 
@@ -78,7 +63,8 @@ var formData = new FormData();
                         type="text"
                         className="form-control"
                         id="floatingInputUserName"
-                        placeholder="name@example.com"/>
+                        placeholder="name@example.com"
+                        required />
                     <label htmlFor="floatingInputUserName">Descripcion</label>
                 </div>
 
@@ -88,7 +74,8 @@ var formData = new FormData();
                       onChange={(e) => setLocation(e.target.value)}
                       value={location}
                       id="inputLocation"
-                      className="form-select" >
+                      className="form-select"
+                      required >
                       <option defaultValue>Ubicación</option>
                       <option>Armenia</option>
                       <option>Montenegro</option>
@@ -111,7 +98,7 @@ var formData = new FormData();
                       className="form-control"
                       id="floatingInputCapacity"
                       placeholder="name@example.com"
-                    />
+                      required />
                     <label htmlFor="floatingInputCapacity">Capacidad</label>
                   </div>
                 </div>
@@ -131,7 +118,8 @@ var formData = new FormData();
                     type="file"
                     id="formFileMultiple"
                     multiple
-                  />
+                    accept="image/jpeg"
+                    required />
                 </div>
 
                 <button type="submit" className="btn btn-primary mt-3 form-control p-2 fs-5">Enviar</button>

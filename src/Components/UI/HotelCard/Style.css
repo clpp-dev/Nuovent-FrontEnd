@@ -3,39 +3,27 @@
     grid-template-columns: repeat(4, 1fr);
 }
 
-.card{
-    background-color: rgb(236, 6, 6);
-    padding: 0em 0em 1em;
-    font-family: "Poppins", "Montzerrat";
-    border-radius: 0.2rem;
-    /* background: linear-gradient(120deg,#00d2ff, #3a7bd5); */
-    background-color: #e0e0ee;
-    margin: 0px 0.5em;
-    transition: all 0.2s;
-    max-width: 250px;
-    transition: 0.4s;
+.custom-card{
+    margin: 0.5rem;
 }
 
-.card:hover{
-    cursor: pointer;
-    border-radius: 7px;
-    /* background: linear-gradient(180deg,#00d2ff, #3a7bd5); */
-    box-shadow: inset 10px 10px 15px rgba(0,0,0,0.1),
-                inset -1px -1px 15px #0066ff;
+@media screen and (max-width: 1024px) {
+    .grid-card{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-.card img {
-    width: 100%;
-    max-width: 250px;
-    height: 250px;
+@media screen and (max-width: 768px) {
+    .grid-card{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
-.card ul {
-    list-style: none;
-    text-align: left;
-    padding-bottom: 1em;
-    width: 100%;
-} 
 
-.imgCard{
-    width: 100%;
+@media screen and (max-width: 615px) {
+    .grid-card{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
