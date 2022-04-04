@@ -27,13 +27,15 @@ export const LoginForm = () => {
 
     localStorage.setItem("token", token);
     let decoded = await jwt(token);
+    console.log("🚀🚀🚀~decoded CLAIMS", decoded);
+    
     let stateUser = await decoded.claims.state;
     console.log(
       "🚀 ~ file: loginForm.jsx ~ line 33 ~ newLogin ~ stateUser",
       stateUser
-    );
+      );
+
     localStorage.setItem("stateUser", stateUser);
-    console.log("🚀🚀🚀~decoded CLAIMS", decoded);
     stateUser === "1" ? navigate("/") :
     stateUser === "2" ? navigate("/home") :
     alert("Datos Invalidos, inténtalo de nuevo");

@@ -5,6 +5,3 @@ export const AuthUser = () => {
   return userInSession;
 };
 
-export const Reload = () => {
-  // location.reload();
-};
