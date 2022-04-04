@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 export const HotelCard = ({anounces, columns}) => {
   console.log(anounces);
-  console.log(columns);
   const navigate = useNavigate()
 
   return (

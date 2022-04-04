@@ -36,7 +36,19 @@ export const NavButtons = () => {
 
             {
               userIsLoggedIn && stateUser === "1" ?
+              <NavLink to="/ofertartuespacio" className="nav-link d-flex flex-column justify-content-center align-items-center"><IoIosCreate className="" />Ofertar tu espacio</NavLink>
+              : ""
+            }
+
+            {
+              userIsLoggedIn && stateUser === "2" ?
               <NavLink to="/crearanuncio" className="nav-link d-flex flex-column justify-content-center align-items-center"><IoIosCreate className="" />Crear Anuncio</NavLink>
+              : ""
+            }
+
+            {
+              userIsLoggedIn && stateUser === "2" ?
+              <NavLink to="/misanuncios" className="nav-link d-flex flex-column justify-content-center align-items-center"><IoIosCreate className="" />Mis anuncios</NavLink>
               : ""
             }
 
