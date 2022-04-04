@@ -1,6 +1,5 @@
 import "./Style.css"
 import React from 'react'
-import PropTypes from 'prop-types'
 
 export const Advantages = () => {
   return (
@@ -16,9 +15,6 @@ export const Advantages = () => {
   )
 }
 
-Advantages.propTypes = {
-
-}
 
 
 

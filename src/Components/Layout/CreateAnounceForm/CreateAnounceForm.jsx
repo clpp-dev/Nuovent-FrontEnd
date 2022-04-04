@@ -1,6 +1,7 @@
 import "./Style.css";
 import React, { useState } from "react";
 import axios from "axios";
+import jwt from "jwt-decode";
 
 export const CreateAnounceForm = () => {
   const [nomAnounce, setNomAnounce] = useState("");
@@ -13,10 +14,16 @@ var formData = new FormData();
 
   const newAnounce = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token")
+    const decoded = jwt(token);
+    const userId = decoded.uid;
+    console.log("🚀 ~ file: CreateAnounceForm.jsx ~ line 20 ~ newAnounce ~ userId", userId)
+
     formData.append("nomAnounce", nomAnounce);
     formData.append("description", description);
     formData.append("location", location);
     formData.append("numCapacity", numCapacity);
+    formData.append("uid", userId);
 
     // arrayImages.map((index, item) => (
     //       formData.append(`file${index}`, item)
@@ -28,18 +35,23 @@ var formData = new FormData();
     console.log(arrayImages)
 
     axios.post("https://nuoventr.herokuapp.com/anuncio",formData)
+    .then((response) => {
+      console.log("---------- AXIOS CREAR ANUNCIO ----------------")
+      console.log(response)
+      response.status === 200 ? alert("Anuncio registrado con Éxito") : alert("Hubo un error, intentalo de nuevo")
+    })
 
     setNomAnounce("");
     setDescription("");
     setLocation("");
     setNumCapacity("");
     setArrayImages([]);
-    alert("Anuncio registrado con Éxito")
+    
   };
 
   function numImagesError(e) {
     e.target.value = null;
-    alert("Error: SOLO PUEDE SUBIR HASTA 6 IMAGENES")
+    alert("Error: Solo puede subir hasta 6 imágenes")
   }
 
   return (

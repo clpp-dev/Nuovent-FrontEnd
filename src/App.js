@@ -11,6 +11,8 @@ import { EventZone } from "./Components/Page/EventZone/EventZone";
 import { ShowAnounce } from "./Components/Page/ShowAnounce/ShowAnounce";
 import { Error404 } from "./Components/Page/Error404/Error404";
 import { PrivateRoute } from "./Components/Helpers/PrivateRoute/PrivateRoute";
+import { OfferYourSpace } from "./Components/Page/OfferYourSpace/OfferYourSpace";
+import { MyAnounces } from "./Components/Page/MyAnounces/MyAnounces";
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
             <Route path="/anuncio/:IdAnounce" element={<ShowAnounce />} />
             <Route element={<PrivateRoute /> }>
               <Route exact path="/crearanuncio" element={<CreateAnounceForm />} />
+              <Route exact path="/misanuncios" element={<MyAnounces />} />
+              <Route exact path="/ofertartuespacio" element={<OfferYourSpace />} />
             </Route>
             <Route path="*" element={<Error404 />}/>
             <Route exact path="/" element={<Home />} />
