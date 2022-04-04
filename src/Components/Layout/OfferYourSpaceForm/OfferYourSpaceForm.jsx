@@ -52,6 +52,7 @@ export const OfferYourSpaceForm = () => {
     newStateUser === 1 ? navigate("/") :
     newStateUser === 2 ? navigate("/home") :
     alert("Datos Invalidos, inténtalo de nuevo");
+    window.location.reload(true)
 
     setBusiness("");
     setNit("");

@@ -39,6 +39,7 @@ export const LoginForm = () => {
     stateUser === "1" ? navigate("/") :
     stateUser === "2" ? navigate("/home") :
     alert("Datos Invalidos, inténtalo de nuevo");
+    window.location.reload(true)
     setEmail("");
     setPassword("");
   };
