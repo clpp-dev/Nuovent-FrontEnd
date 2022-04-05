@@ -19,16 +19,9 @@ useEffect(() =>{
 },[])
 
   return (
-    <div className="container px-4 py-5" id="custom-cards">
+    <div className="container px-4 py-2" id="custom-cards">
       <h2 className="pb-2 border-bottom">Últimos agregados</h2>
         <HotelCard anounces={lastAnounoces} columns={3} />
     </div>
   );
 }
-
-    // <div className="cont-featured">
-    //   <TittleH2 textTittle="Destacados" />
-    //   <div className="cont-Cards-featured">
-    //     <HotelCard anounces={lastAnounoces}/>
-    //   </div>
-    // </div>

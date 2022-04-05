@@ -32,7 +32,10 @@ export const MyAnounces = () => {
 
   return (
     <div>
-      <HotelCard anounces={currentAnouncesBusiness} columns={3}/>
+      <h1 className="container-fluid text-center mt-4"> Mis Anuncios </h1>
+      <div className="container">
+        <HotelCard anounces={currentAnouncesBusiness} columns={3}/>
+      </div>
     </div>
     );
 };

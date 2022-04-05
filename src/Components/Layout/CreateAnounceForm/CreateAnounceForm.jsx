@@ -106,7 +106,7 @@ var formData = new FormData();
                     <input
                       onChange={(e) => setNumCapacity(e.target.value)}
                       value={numCapacity}
-                      type="text"
+                      type="number"
                       className="form-control"
                       id="floatingInputCapacity"
                       placeholder="name@example.com"

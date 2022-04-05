@@ -7,6 +7,18 @@
     margin: 0.5rem;
 }
 
+.custom-bg-opacity{
+    background-color: rgba(0, 0, 0, 0.651)
+}
+
+.custom-transform{
+    transition: all 0.3s;
+    transform: scale(100%);
+}
+.custom-transform:hover{
+    transform: scale(102%);
+}
+
 @media screen and (max-width: 1024px) {
     .grid-card{
         display: grid;

@@ -20,25 +20,33 @@ export const LoginForm = () => {
         password,
       }),
     });
-    const data = await res.json();
-    console.log("🚀 ~ file: loginForm.jsx ~ line 25 ~ newLogin ~ data", data);
-    let token = await data.token;
-    console.log("🚀 ~ file: loginForm.jsx ~ line 26 ~ newLogin ~ token", token);
-
-    localStorage.setItem("token", token);
-    let decoded = await jwt(token);
-    console.log("🚀🚀🚀~decoded CLAIMS", decoded);
+    try { 
+      const data = await res.json();
+      console.log("🚀 ~ file: loginForm.jsx ~ line 25 ~ newLogin ~ data", data);
+      let token = await data.token;
+      console.log("🚀 ~ file: loginForm.jsx ~ line 26 ~ newLogin ~ token", token);
+  
+      localStorage.setItem("token", token);
+      let decoded = await jwt(token);
+      console.log("🚀🚀🚀~decoded CLAIMS", decoded);
+      
+      let stateUser = await decoded.claims.state;
+      console.log(
+        "🚀 ~ file: loginForm.jsx ~ line 33 ~ newLogin ~ stateUser",
+        stateUser
+        );
+  
+      localStorage.setItem("stateUser", stateUser);
+      stateUser === "1" ? navigate("/") :
+      stateUser === "2" ? navigate("/home") :
+      alert("Datos Invalidos, inténtalo de nuevo");
+      window.location.reload(true)
+    }
     
-    let stateUser = await decoded.claims.state;
-    console.log(
-      "🚀 ~ file: loginForm.jsx ~ line 33 ~ newLogin ~ stateUser",
-      stateUser
-      );
-
-    localStorage.setItem("stateUser", stateUser);
-    stateUser === "1" ? navigate("/") :
-    stateUser === "2" ? navigate("/home") :
-    alert("Datos Invalidos, inténtalo de nuevo");
+    catch (error) {
+      console.error(error);
+      alert("Datos Invalidos, inténtalo de nuevo");
+    }
     window.location.reload(true)
     setEmail("");
     setPassword("");

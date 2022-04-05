@@ -71,7 +71,7 @@ export const RegistryForm = () => {
             <input
               onChange={(e) => setNumDoc(e.target.value)}
               value={numDoc}
-              type="text"
+              type="number"
               className="form-control"
               id="floatingInputTypeDoc"
               placeholder="Número de documento"
