@@ -21,7 +21,7 @@ export const NavButtons = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav ms-0 ms-md-3 d-flex flex-wrap">
-            <NavLink to="/" className="nav-link rounded d-flex flex-column justify-content-center align-items-center"><ImHome className="" />Home</NavLink>
+            <NavLink to="/" className="nav-link rounded d-flex flex-column justify-content-center align-items-center"><ImHome className="" />Inicio</NavLink>
             <NavLink to="/zonaeventos" className="nav-link d-flex flex-column justify-content-center align-items-center"><GiPartyPopper className="" />Zona Eventos</NavLink>
 
             {

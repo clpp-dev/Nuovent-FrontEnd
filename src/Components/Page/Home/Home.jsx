@@ -16,8 +16,7 @@ export const Home = () => {
       <div className="container-fluid bg-dark">
         <div className="container text-light py-5 px-1">
           <TittleH2 textTittle="Encuentra tu espacio ideal con nosotros!"/>
-          <p className="mt-5 pb-5 mb-lg-5 px-lg-5 mx-lg-5 lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint nemo, cupiditate repellat quasi ipsum modi neque iste labore consequatur quos odio explicabo impedit aperiam! Dolorem animi aperiam libero non neque!
-          </p>
+          <p className="mt-5 pb-5 mb-lg-5 px-lg-5 mx-lg-5 lead">En Nuovent.com podrás encontrar el espacio ideal para tus eventos, tenemos a disposición gran variedad de establecimientos rurales y salones de eventos que cada día confían sus servicios de eventos para nuestros usuarios.</p>
         </div>
       </div>
       {/* <svg className="svgWave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" d="M0,96L720,256L1440,128L1440,320L720,320L0,320Z"></path></svg> */}

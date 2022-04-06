@@ -45,7 +45,7 @@ export const LoginForm = () => {
     
     catch (error) {
       console.error(error);
-      alert("Datos Invalidos, inténtalo de nuevo");
+      alert("Ups... Hubo un error inesperado, vulve a intentarlo");
     }
     window.location.reload(true)
     setEmail("");

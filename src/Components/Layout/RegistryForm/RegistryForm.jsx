@@ -1,5 +1,6 @@
 import "./Style.css";
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 export const RegistryForm = () => {
   const [nombre, setNombre] = useState("");
@@ -9,6 +10,8 @@ export const RegistryForm = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const newRegistry = async (e) => {
     e.preventDefault();
@@ -28,8 +31,10 @@ export const RegistryForm = () => {
       }),
     });
     const data = await res.json();
-    console.log(data);
-
+    console.log("🚀 ~ file: RegistryForm.jsx ~ line 34 ~ newRegistry ~ data", data)
+    alert("Usuario creado correctamente!");
+    navigate("/login")
+    
     setNombre("");
     setTypeDoc("");
     setNumDoc("");

@@ -105,11 +105,11 @@ export const Carousel = ({picture1, picture2, picture3, picture4, picture5, pict
 
             <div className="container">
               <div className="carousel-caption">
-                <h1>IMAGEN 2</h1>
+                {/* <h1>IMAGEN 2</h1>
                 <p>
                   Some representative placeholder content for the second slide of
                   the carousel.
-                </p>
+                </p> */}
               </div>
             </div>
           </div> }

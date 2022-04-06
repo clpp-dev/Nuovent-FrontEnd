@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom"
 import "./Style.css";
 import ImgFeature from "../../../Img/backgrounds/Home-bg1.jpg";
-import { AuthUser } from "../../Helpers/AuthUser/AuthUser";
 
 export const Featured = () => {
-  const userIsLoggedIn = AuthUser();
   const stateUser = localStorage.getItem('stateUser')
   return (
     <div className="container col-xxl-8 px-4 py-5">

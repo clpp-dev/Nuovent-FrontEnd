@@ -13,6 +13,7 @@ export const ShowAnounce = () => {
   const axiosApi = () => {axios.get(urlApi)
   .then((response) => {
     setCurrentAnounce(response['data'])
+    console.log(response)
   })
   .catch((error) => {
     console.log(error);
@@ -40,10 +41,14 @@ export const ShowAnounce = () => {
         {
           currentAnounce.map((item, index) => (
             <div key={index} className="container d-flex flex-column align-items-center my-5">
-              <h2 className="mt-4 text-start">ID DEL ANUNCIO: {IdAnounce}</h2>
-              <h2 className="mt-4 text-start">Titulo de la PROP: {item.nomAnounce}</h2>
+              {/* <h2 className="mt-4 text-start">ID DEL ANUNCIO: {IdAnounce}</h2> */}
+              <h2 className="mt-4 text-start">{item.nomAnounce}</h2>
               <p className="mt-2 mb-5 text-start">DESCRIPCION: {item.description}   </p>
-              <img className="w-75" src={item.picture1} alt="" />
+              {/* <img className="w-75" src={item.picture1} alt="" /> */}
+              <div className="d-flex">
+                <a href="#" className="btn btn-primary mx-1">Llamar ahora: {item.telefono}</a>
+                <a href="#" className="btn btn-secondary mx-1">Email: {item.email}</a>
+              </div>
             </div>  
           ))
         }
