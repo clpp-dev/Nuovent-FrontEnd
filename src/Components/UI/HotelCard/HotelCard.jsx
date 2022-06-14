@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 
 export const HotelCard = ({anounces, columns}) => {
-  console.log(anounces);
+  // console.log(anounces);
   const navigate = useNavigate()
 
   return (
